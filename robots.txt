@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /*.json$
+Disallow: /*.xml$
+
+Sitemap: https://yourdomain.com/sitemap.xml

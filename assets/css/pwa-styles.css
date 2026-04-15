@@ -1,0 +1,194 @@
+/* PWA Specific Styles */
+
+/* Prevent text selection in standalone mode */
+.pwa-standalone {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Safe area insets for notched devices */
+@supports (padding: max(0px)) {
+    .pwa-standalone {
+        padding-left: max(12px, env(safe-area-inset-left));
+        padding-right: max(12px, env(safe-area-inset-right));
+        padding-bottom: max(70px, env(safe-area-inset-bottom));
+    }
+    
+    .pwa-standalone .navbar {
+        padding-top: max(8px, env(safe-area-inset-top));
+    }
+}
+
+/* Pull to refresh indicator */
+.refresh-indicator {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    padding: 10px 20px;
+    border-radius: 0 0 20px 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    z-index: 10000;
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translate(-50%, -100%);
+        opacity: 0;
+    }
+    to {
+        transform: translate(-50%, 0);
+        opacity: 1;
+    }
+}
+
+/* Install button animation */
+#pwa-install-button {
+    animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translate(-50%, 100%);
+        opacity: 0;
+    }
+    to {
+        transform: translate(-50%, 0);
+        opacity: 1;
+    }
+}
+
+/* Offline indicator */
+.offline-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #ffc107;
+    color: #000;
+    text-align: center;
+    padding: 8px;
+    z-index: 9999;
+    font-size: 14px;
+    transform: translateY(-100%);
+    transition: transform 0.3s;
+}
+
+.offline-banner.show {
+    transform: translateY(0);
+}
+
+/* Touch-friendly interactions */
+@media (pointer: coarse) {
+    button, 
+    .btn,
+    .nav-item-custom,
+    .list-group-item {
+        min-height: 44px;
+        padding: 12px 16px;
+    }
+    
+    input, 
+    select, 
+    textarea {
+        font-size: 16px !important; /* Prevent zoom on focus in iOS */
+    }
+}
+
+/* Loading skeleton for PWA */
+.pwa-skeleton {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: pwa-loading 1.5s infinite;
+    border-radius: 8px;
+}
+
+@keyframes pwa-loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Splash screen (shown while PWA loads) */
+.pwa-splash {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+}
+
+.pwa-splash-content {
+    text-align: center;
+    color: white;
+}
+
+.pwa-splash-logo {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 20px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Window Controls Overlay support */
+@media (display-mode: window-controls-overlay) {
+    .navbar {
+        padding-top: env(titlebar-area-height, 33px);
+        -webkit-app-region: drag;
+    }
+    
+    .navbar button,
+    .navbar a,
+    .navbar input {
+        -webkit-app-region: no-drag;
+    }
+}
+
+/* iOS specific fixes */
+@supports (-webkit-touch-callout: none) {
+    input, 
+    textarea, 
+    select {
+        font-size: 16px !important;
+    }
+    
+    .bottom-nav {
+        padding-bottom: 20px;
+    }
+}
+
+/* Android navigation bar color */
+@media (display-mode: standalone) {
+    :root {
+        --android-nav-bar: #f8f9fc;
+    }
+    
+    body {
+        background-color: var(--android-nav-bar);
+    }
+}

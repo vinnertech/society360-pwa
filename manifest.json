@@ -1,0 +1,151 @@
+{
+  "name": "Society 360 - Smart Community Management",
+  "short_name": "Society360",
+  "description": "Complete society management system with visitor tracking, maintenance billing, and community engagement",
+  "start_url": "/?utm_source=pwa&utm_medium=standalone",
+  "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
+  "orientation": "portrait",
+  "theme_color": "#0d6efd",
+  "background_color": "#f8f9fc",
+  "scope": "/",
+  "id": "com.society360.pwa",
+  "lang": "en-IN",
+  "dir": "ltr",
+  "categories": [
+    "business",
+    "productivity",
+    "utilities",
+    "social"
+  ],
+  "iarc_rating_id": "e84b072d-71b3-4d3e-86ae-31a8ce4e53b7",
+  "icons": [
+    {
+      "src": "icons/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/maskable-icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "screenshots/desktop-dashboard.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Dashboard view on desktop"
+    },
+    {
+      "src": "screenshots/mobile-dashboard.png",
+      "sizes": "750x1334",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Mobile dashboard with bottom navigation"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Visitor Entry",
+      "short_name": "Entry",
+      "description": "Quick visitor check-in",
+      "url": "/?action=visitor-entry&source=shortcut",
+      "icons": [
+        {
+          "src": "icons/visitor-shortcut.png",
+          "sizes": "96x96",
+          "type": "image/png",
+          "purpose": "any"
+        }
+      ]
+    },
+    {
+      "name": "Maintenance Bills",
+      "short_name": "Bills",
+      "description": "View and pay maintenance",
+      "url": "/?action=maintenance&source=shortcut",
+      "icons": [
+        {
+          "src": "icons/payment-shortcut.png",
+          "sizes": "96x96",
+          "type": "image/png",
+          "purpose": "any"
+        }
+      ]
+    },
+    {
+      "name": "Raise Complaint",
+      "short_name": "Complaint",
+      "description": "Report an issue",
+      "url": "/?action=complaints&source=shortcut",
+      "icons": [
+        {
+          "src": "icons/complaint-shortcut.png",
+          "sizes": "96x96",
+          "type": "image/png",
+          "purpose": "any"
+        }
+      ]
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "handle_links": "preferred",
+  "launch_handler": {
+    "client_mode": ["navigate-existing", "auto"]
+  },
+  "edge_side_panel": {},
+  "protocol_handlers": [
+    {
+      "protocol": "web+society",
+      "url": "/?action=%s"
+    }
+  ]
+}
