@@ -59,6 +59,7 @@
     </div>
     
     <script>
+        // ✅ UPDATE THIS WITH YOUR ACTUAL APPS SCRIPT URL
         const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzCilOIf6E6JBmwddnPlIjLfK96-05JPo8zB3pacJ2tgq1D1wsO8gTyge1_0aqP4y-faw/exec';
         
         async function handleAction() {
@@ -82,7 +83,7 @@
                     const actionText = action === 'approve' ? 'Approved' : 'Rejected';
                     document.getElementById('actionMessage').textContent = `Visitor ${actionText}!`;
                     document.getElementById('actionDetails').textContent = 
-                        `The visitor entry has been ${actionText.toLowerCase()}. Security gate has been notified.`;
+                        `The visitor entry has been ${actionText.toLowerCase()}.`;
                     
                     showSuccess();
                 } else {
@@ -105,7 +106,6 @@
             document.getElementById('errorMessage').textContent = message;
         }
         
-        // Auto-handle on load
         window.addEventListener('load', handleAction);
     </script>
 </body>
